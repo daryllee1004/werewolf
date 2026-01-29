@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Werewolf Dark Card</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-<h1 class="title">🐺 WEREWOLF</h1>
+<header class="app-header">
+  <h1>🐺 Werewolf</h1>
+  <p>Dark Card Setup</p>
+</header>
 
-<!-- ===== SETUP ===== -->
-<section id="setup">
-  <div class="group">
-    <h2>Phe Dân</h2>
-    <div id="group-dan" class="card-list"></div>
-  </div>
+<main class="app">
 
-  <div class="group">
-    <h2>Phe Sói</h2>
-    <div id="group-soi" class="card-list"></div>
-  </div>
+  <!-- SETUP -->
+  <section id="setup" class="panel">
+    <div class="factions">
+      <div class="faction">
+        <h2>Phe Dân</h2>
+        <div id="group-dan" class="card-grid"></div>
+      </div>
 
-  <div class="group">
-    <h2>Character</h2>
-    <div id="group-char" class="card-list"></div>
-  </div>
+      <div class="faction">
+        <h2>Phe Sói</h2>
+        <div id="group-soi" class="card-grid"></div>
+      </div>
 
-  <div class="summary">
-    Tổng số lá: <span id="totalCards">0</span>
-  </div>
+      <div class="faction">
+        <h2>Character</h2>
+        <div id="group-char" class="card-grid"></div>
+      </div>
+    </div>
 
-  <button class="btn primary" onclick="startGame()">Bắt đầu game</button>
-</section>
+    <div class="setup-footer">
+      <div class="total">
+        Tổng số lá: <span id="totalCards">0</span>
+      </div>
+      <button class="btn primary" onclick="startGame()">Bắt đầu game</button>
+    </div>
+  </section>
 
-<!-- ===== GAME ===== -->
-<section id="game" class="hidden">
-  <div id="deck" class="deck"></div>
-  <button class="btn primary" onclick="drawCard()">Chọn bài</button>
-</section>
+  <!-- GAME -->
+  <section id="game" class="panel hidden">
+    <div id="deck" class="deck"></div>
+    <button class="btn primary" onclick="drawCard()">Chọn bài</button>
+  </section>
 
-<!-- ===== RESULT ===== -->
-<section id="result" class="hidden">
-  <h2>Lịch sử bốc bài</h2>
-  <ul id="history"></ul>
-  <button class="btn ghost" onclick="resetGame()">Bắt đầu lại</button>
-</section>
+  <!-- RESULT -->
+  <section id="result" class="panel hidden">
+    <h2>Lịch sử bốc bài</h2>
+    <ul id="history" class="history"></ul>
+    <button class="btn ghost" onclick="resetGame()">Chơi lại</button>
+  </section>
+
+</main>
 
 <script src="./script.js"></script>
 </body>
