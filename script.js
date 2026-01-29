@@ -9,24 +9,23 @@ const cards = [
   { id:'witch', name:'Phù thủy', group:'char', img:'./assets/witch.webp', count:0 }
 ];
 
-let deck = [];
 let gameDeck = [];
 let history = [];
 
-/* ===== SETUP VIEW ===== */
-function renderSetup(){
-  ['dan','soi','char'].forEach(g=>{
+/* ===== SETUP ===== */
+function renderSetup() {
+  ['dan','soi','char'].forEach(g => {
     const box = document.getElementById(`group-${g}`);
     box.innerHTML = '';
 
-    cards.filter(c=>c.group===g).forEach(c=>{
+    cards.filter(c => c.group === g).forEach(c => {
       box.innerHTML += `
         <div class="card-config">
           <img src="${c.img}">
           <div class="name">${c.name}</div>
           <div class="counter">
             <button onclick="changeCount('${c.id}',-1)">−</button>
-            <span id="count-${c.id}">${c.count}</span>
+            <span>${c.count}</span>
             <button onclick="changeCount('${c.id}',1)">+</button>
           </div>
         </div>
@@ -34,89 +33,50 @@ function renderSetup(){
     });
   });
 
-  renderPreview();
-}
-
-/* ===== CHANGE COUNT ===== */
-function changeCount(id, delta){
-  const card = cards.find(c=>c.id===id);
-  card.count = Math.max(0, card.count + delta);
-
-  document.getElementById(`count-${id}`).innerText = card.count;
   updateTotal();
-  renderPreview();
 }
 
-/* ===== PREVIEW DECK (SETUP PHASE) ===== */
-function renderPreview(){
-  const preview = document.getElementById('deck');
-  preview.innerHTML = '';
-
-  ['dan','soi','char'].forEach(g=>{
-    const section = document.createElement('div');
-    section.className = 'deck-group';
-    section.innerHTML = `<h3>${groupName(g)}</h3>`;
-
-    cards.filter(c=>c.group===g && c.count>0).forEach(c=>{
-      for(let i=0;i<c.count;i++){
-        section.innerHTML += `
-          <div class="card small">
-            <img src="${c.img}">
-          </div>
-        `;
-      }
-    });
-
-    preview.appendChild(section);
-  });
+function changeCount(id, delta) {
+  const c = cards.find(x => x.id === id);
+  c.count = Math.max(0, c.count + delta);
+  renderSetup();
 }
 
-/* ===== TOTAL ===== */
-function updateTotal(){
+function updateTotal() {
   document.getElementById('totalCards').innerText =
     cards.reduce((s,c)=>s+c.count,0);
 }
 
-/* ===== START GAME ===== */
-function startGame(){
+/* ===== START ===== */
+function startGame() {
   gameDeck = [];
   history = [];
 
-  cards.forEach(c=>{
-    for(let i=0;i<c.count;i++){
-      gameDeck.push({...c});
-    }
+  cards.forEach(c => {
+    for (let i=0;i<c.count;i++) gameDeck.push({...c});
   });
 
-  if(gameDeck.length === 0) return;
+  if (!gameDeck.length) return;
 
   gameDeck.sort(()=>Math.random()-0.5);
 
   document.getElementById('setup').classList.add('hidden');
   document.getElementById('game').classList.remove('hidden');
 
-  renderGameDeck();
+  renderBackDeck();
 }
 
-/* ===== GAME DECK ===== */
-function renderGameDeck(){
+function renderBackDeck() {
   const d = document.getElementById('deck');
   d.innerHTML = '';
-  gameDeck.forEach(()=>{
-    d.innerHTML += `
-      <div class="card small">
-        <img src="${BACK_IMG}">
-      </div>
-    `;
+  gameDeck.forEach(() => {
+    d.innerHTML += `<img src="${BACK_IMG}">`;
   });
 }
 
 /* ===== DRAW ===== */
-function drawCard(){
-  if(gameDeck.length===0){
-    endGame();
-    return;
-  }
+function drawCard() {
+  if (!gameDeck.length) return endGame();
 
   const i = Math.floor(Math.random()*gameDeck.length);
   const card = gameDeck.splice(i,1)[0];
@@ -124,40 +84,32 @@ function drawCard(){
 
   const d = document.getElementById('deck');
   d.innerHTML = `
-    <div class="card big flip">
-      <div class="inner">
-        <img class="front" src="${card.img}">
-        <img class="back" src="${BACK_IMG}">
+    <div class="card-big">
+      <div class="card-inner">
+        <img class="card-face card-front" src="${card.img}">
+        <img class="card-face" src="${BACK_IMG}">
       </div>
     </div>
   `;
 
-  setTimeout(renderGameDeck,3000);
+  setTimeout(renderBackDeck, 3000);
 }
 
 /* ===== END ===== */
-function endGame(){
+function endGame() {
   document.getElementById('game').classList.add('hidden');
   document.getElementById('result').classList.remove('hidden');
 
   const h = document.getElementById('history');
-  h.innerHTML='';
-  history.forEach((n,i)=>{
-    h.innerHTML += `<li>${i+1}. ${n}</li>`;
-  });
+  h.innerHTML = '';
+  history.forEach((n,i)=>h.innerHTML+=`<li>${i+1}. ${n}</li>`);
 }
 
-function resetGame(){
+function resetGame() {
+  cards.forEach(c=>c.count=0);
   document.getElementById('result').classList.add('hidden');
   document.getElementById('setup').classList.remove('hidden');
-  cards.forEach(c=>c.count=0);
   renderSetup();
-  updateTotal();
-}
-
-function groupName(g){
-  return g==='dan'?'Phe Dân':g==='soi'?'Phe Sói':'Character';
 }
 
 renderSetup();
-updateTotal();
