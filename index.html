@@ -2,14 +2,43 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Mini Game Ma Sói</title>
+  <title>Werewolf Card Game</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-<h1>🐺 Mini Game Ma Sói</h1>
+<h1>🐺 Werewolf Card Game</h1>
 
-<button onclick="test()">Test JS</button>
+<!-- ===== SETUP ===== -->
+<section id="setup">
+
+  <div class="group">
+    <h2>Phe Dân</h2>
+    <div class="card-list" id="group-dan"></div>
+  </div>
+
+  <div class="group">
+    <h2>Phe Sói</h2>
+    <div class="card-list" id="group-soi"></div>
+  </div>
+
+  <div class="group">
+    <h2>Character</h2>
+    <div class="card-list" id="group-char"></div>
+  </div>
+
+  <div class="summary">
+    Tổng số lá: <strong id="totalCards">0</strong>
+  </div>
+
+  <button onclick="startGame()">Bắt đầu</button>
+</section>
+
+<!-- ===== GAME ===== -->
+<section id="game" class="hidden">
+  <div class="deck" id="deck"></div>
+  <button onclick="drawCard()">Chọn bài</button>
+</section>
 
 <script src="./script.js"></script>
 </body>
