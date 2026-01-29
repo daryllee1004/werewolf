@@ -10,62 +10,99 @@ const cards = [
 ];
 
 let deck = [];
+let gameDeck = [];
 let history = [];
 
-/* ===== SETUP ===== */
-function renderSetup() {
-  ['dan','soi','char'].forEach(g => {
+/* ===== SETUP VIEW ===== */
+function renderSetup(){
+  ['dan','soi','char'].forEach(g=>{
     const box = document.getElementById(`group-${g}`);
     box.innerHTML = '';
-    cards.filter(c => c.group === g).forEach(c => {
+
+    cards.filter(c=>c.group===g).forEach(c=>{
       box.innerHTML += `
         <div class="card-config">
           <img src="${c.img}">
           <div class="name">${c.name}</div>
-          <input type="number" min="0" value="0"
-            onchange="setCount('${c.id}', this.value)">
+          <div class="counter">
+            <button onclick="changeCount('${c.id}',-1)">−</button>
+            <span id="count-${c.id}">${c.count}</span>
+            <button onclick="changeCount('${c.id}',1)">+</button>
+          </div>
         </div>
       `;
     });
   });
+
+  renderPreview();
 }
 
-function setCount(id, value) {
-  const card = cards.find(c => c.id === id);
-  card.count = Number(value);
+/* ===== CHANGE COUNT ===== */
+function changeCount(id, delta){
+  const card = cards.find(c=>c.id===id);
+  card.count = Math.max(0, card.count + delta);
+
+  document.getElementById(`count-${id}`).innerText = card.count;
   updateTotal();
+  renderPreview();
 }
 
-function updateTotal() {
+/* ===== PREVIEW DECK (SETUP PHASE) ===== */
+function renderPreview(){
+  const preview = document.getElementById('deck');
+  preview.innerHTML = '';
+
+  ['dan','soi','char'].forEach(g=>{
+    const section = document.createElement('div');
+    section.className = 'deck-group';
+    section.innerHTML = `<h3>${groupName(g)}</h3>`;
+
+    cards.filter(c=>c.group===g && c.count>0).forEach(c=>{
+      for(let i=0;i<c.count;i++){
+        section.innerHTML += `
+          <div class="card small">
+            <img src="${c.img}">
+          </div>
+        `;
+      }
+    });
+
+    preview.appendChild(section);
+  });
+}
+
+/* ===== TOTAL ===== */
+function updateTotal(){
   document.getElementById('totalCards').innerText =
     cards.reduce((s,c)=>s+c.count,0);
 }
 
 /* ===== START GAME ===== */
-function startGame() {
-  deck = [];
+function startGame(){
+  gameDeck = [];
   history = [];
 
-  cards.forEach(c => {
+  cards.forEach(c=>{
     for(let i=0;i<c.count;i++){
-      deck.push({...c});
+      gameDeck.push({...c});
     }
   });
 
-  if(deck.length === 0) return;
+  if(gameDeck.length === 0) return;
 
-  deck.sort(()=>Math.random()-0.5);
+  gameDeck.sort(()=>Math.random()-0.5);
 
   document.getElementById('setup').classList.add('hidden');
   document.getElementById('game').classList.remove('hidden');
 
-  renderDeck();
+  renderGameDeck();
 }
 
-function renderDeck() {
+/* ===== GAME DECK ===== */
+function renderGameDeck(){
   const d = document.getElementById('deck');
   d.innerHTML = '';
-  deck.forEach(()=> {
+  gameDeck.forEach(()=>{
     d.innerHTML += `
       <div class="card small">
         <img src="${BACK_IMG}">
@@ -75,14 +112,14 @@ function renderDeck() {
 }
 
 /* ===== DRAW ===== */
-function drawCard() {
-  if(deck.length === 0){
+function drawCard(){
+  if(gameDeck.length===0){
     endGame();
     return;
   }
 
-  const index = Math.floor(Math.random()*deck.length);
-  const card = deck.splice(index,1)[0];
+  const i = Math.floor(Math.random()*gameDeck.length);
+  const card = gameDeck.splice(i,1)[0];
   history.push(card.name);
 
   const d = document.getElementById('deck');
@@ -95,7 +132,7 @@ function drawCard() {
     </div>
   `;
 
-  setTimeout(renderDeck, 3000);
+  setTimeout(renderGameDeck,3000);
 }
 
 /* ===== END ===== */
@@ -104,7 +141,7 @@ function endGame(){
   document.getElementById('result').classList.remove('hidden');
 
   const h = document.getElementById('history');
-  h.innerHTML = '';
+  h.innerHTML='';
   history.forEach((n,i)=>{
     h.innerHTML += `<li>${i+1}. ${n}</li>`;
   });
@@ -113,8 +150,14 @@ function endGame(){
 function resetGame(){
   document.getElementById('result').classList.add('hidden');
   document.getElementById('setup').classList.remove('hidden');
+  cards.forEach(c=>c.count=0);
   renderSetup();
   updateTotal();
 }
 
+function groupName(g){
+  return g==='dan'?'Phe Dân':g==='soi'?'Phe Sói':'Character';
+}
+
 renderSetup();
+updateTotal();
