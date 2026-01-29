@@ -2,42 +2,49 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Werewolf Card Game</title>
+  <title>Werewolf Dark Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-<h1>🐺 Werewolf Card Game</h1>
+<h1 class="title">🐺 WEREWOLF</h1>
 
 <!-- ===== SETUP ===== -->
 <section id="setup">
-
   <div class="group">
     <h2>Phe Dân</h2>
-    <div class="card-list" id="group-dan"></div>
+    <div id="group-dan" class="card-list"></div>
   </div>
 
   <div class="group">
     <h2>Phe Sói</h2>
-    <div class="card-list" id="group-soi"></div>
+    <div id="group-soi" class="card-list"></div>
   </div>
 
   <div class="group">
     <h2>Character</h2>
-    <div class="card-list" id="group-char"></div>
+    <div id="group-char" class="card-list"></div>
   </div>
 
   <div class="summary">
-    Tổng số lá: <strong id="totalCards">0</strong>
+    Tổng số lá: <span id="totalCards">0</span>
   </div>
 
-  <button onclick="startGame()">Bắt đầu</button>
+  <button class="btn primary" onclick="startGame()">Bắt đầu game</button>
 </section>
 
 <!-- ===== GAME ===== -->
 <section id="game" class="hidden">
-  <div class="deck" id="deck"></div>
-  <button onclick="drawCard()">Chọn bài</button>
+  <div id="deck" class="deck"></div>
+  <button class="btn primary" onclick="drawCard()">Chọn bài</button>
+</section>
+
+<!-- ===== RESULT ===== -->
+<section id="result" class="hidden">
+  <h2>Lịch sử bốc bài</h2>
+  <ul id="history"></ul>
+  <button class="btn ghost" onclick="resetGame()">Bắt đầu lại</button>
 </section>
 
 <script src="./script.js"></script>
