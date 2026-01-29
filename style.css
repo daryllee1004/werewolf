@@ -1,34 +1,216 @@
-.card.small{
-  max-width:150px;
+:root {
+  --bg: #0a0a0d;
+  --panel: #13131a;
+  --card: #1b1b24;
+  --accent: #c0123a;
+  --text: #e6e6ef;
+  --muted: #8b8b99;
 }
 
-.card.small img{
-  width:100%;
-  border-radius:10px;
+* {
+  box-sizing: border-box;
 }
 
-.deck-group{
-  margin:20px auto;
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, #1c1c28, #000 70%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
 }
 
-.deck-group h3{
-  color:#ff3b5c;
-  margin-bottom:10px;
+.app-header {
+  text-align: center;
+  padding: 20px 10px;
 }
 
-.counter{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:6px;
+.app-header h1 {
+  margin: 0;
+  letter-spacing: 4px;
 }
 
-.counter button{
-  background:#222;
-  color:#fff;
-  border:none;
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  cursor:pointer;
+.app-header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.app {
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px;
+}
+
+.panel {
+  background: linear-gradient(180deg, #14141c, #0b0b10);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.7);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== SETUP ===== */
+.factions {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .factions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.faction h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #ff4066;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+  gap: 12px;
+}
+
+.card-config {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 10px;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card-config:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.6);
+}
+
+.card-config img {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 10px;
+}
+
+.card-config .name {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.counter {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.counter button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.counter span {
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+.setup-footer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  font-size: 18px;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.primary {
+  background: linear-gradient(135deg, #c0123a, #ff4b6e);
+  color: #fff;
+}
+
+.ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* ===== GAME ===== */
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.deck img {
+  width: 80px;
+  border-radius: 8px;
+}
+
+/* FLIP CARD */
+.card-big {
+  width: 150px;
+  height: 230px;
+  perspective: 1000px;
+  margin: auto;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: flip 3s ease-in-out;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+@keyframes flip {
+  0% { transform: rotateY(0); }
+  40% { transform: rotateY(180deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+/* ===== RESULT ===== */
+.history {
+  padding: 0;
+  list-style: none;
+}
+
+.history li {
+  padding: 6px 0;
+  color: var(--muted);
 }
