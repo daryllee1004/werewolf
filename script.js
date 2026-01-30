@@ -9,7 +9,7 @@ const cards = [
   { id:'witch', name:'Phù thủy', group:'dan', img:'./assets/witch.webp', count:0 },
   { id:'seer', name:'Tiên tri', group:'dan', img:'./assets/seer.webp', count:0 },
   { id:'mentalist', name:'Tâm linh', group:'dan', img:'./assets/mentalist.webp', count:0 },
-  { id:'tough', name:'Cứng cỏi', group:'dan', img:'./assets/tough_guy.webp', count:0 },
+  { id:'tough', name:'Cứng cỏi', group:'dan', img:'./assets/tough-guy.webp', count:0 },
   { id:'prince', name:'Hoàng tử', group:'dan', img:'./assets/prince.webp', count:0 },
   { id:'priest', name:'Tu sĩ', group:'dan', img:'./assets/priest.webp', count:0 },
   { id:'empathist', name:'Thấu cảm', group:'dan', img:'./assets/empathist.webp', count:0 },
