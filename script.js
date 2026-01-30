@@ -8,7 +8,7 @@ const cards = [
   { id:'seer', name:'Tiên tri', group:'dan', img:'./assets/seer.webp', count:1 },
 
   { id:'mentalist', name:'Tâm linh', group:'dan', img:'./assets/mentalist.webp', count:1 },
-  { id:'tough', name:'Cứng cỏi', group:'dan', img:'./assets/tough_guy.webp', count:1 },
+  { id:'tough', name:'Cứng cỏi', group:'dan', img:'./assets/tough-guy.webp', count:1 },
   { id:'prince', name:'Hoàng tử', group:'dan', img:'./assets/prince.webp', count:1 },
   { id:'priest', name:'Tu sĩ', group:'dan', img:'./assets/priest.webp', count:1 },
 
