@@ -1,10 +1,10 @@
 :root {
-  --bg: #0a0a0d;
-  --panel: #13131a;
-  --card: #1b1b24;
+  --bg: #050509;
+  --panel: #12121a;
+  --card: #1b1b25;
   --accent: #c0123a;
-  --text: #e6e6ef;
-  --muted: #8b8b99;
+  --text: #e6e6f0;
+  --muted: #8c8c99;
 }
 
 * {
@@ -19,30 +19,33 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
 }
 
-.app-header {
+/* HEADER */
+.header {
   text-align: center;
-  padding: 20px 10px;
+  padding: 20px;
 }
 
-.app-header h1 {
+.header h1 {
   margin: 0;
   letter-spacing: 4px;
 }
 
-.app-header p {
+.header p {
   margin: 6px 0 0;
   color: var(--muted);
   font-size: 14px;
 }
 
-.app {
+/* CONTAINER */
+.container {
   max-width: 1100px;
   margin: auto;
   padding: 10px;
 }
 
+/* PANEL */
 .panel {
-  background: linear-gradient(180deg, #14141c, #0b0b10);
+  background: linear-gradient(180deg, #15151f, #0b0b11);
   border-radius: 18px;
   padding: 20px;
   margin-bottom: 20px;
@@ -53,24 +56,43 @@ body {
   display: none;
 }
 
-/* ===== SETUP ===== */
-.factions {
-  display: grid;
-  gap: 20px;
+/* ACCORDION */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-@media (min-width: 900px) {
-  .factions {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.accordion-item {
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a1a26, #0d0d14);
 }
 
-.faction h2 {
-  margin: 0 0 10px;
+.accordion-header {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 16px;
   font-size: 18px;
-  color: #ff4066;
+  color: #ff4b6e;
+  text-align: left;
+  cursor: pointer;
 }
 
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+  padding: 0 16px;
+}
+
+.accordion-body.open {
+  max-height: 1000px;
+  padding-bottom: 16px;
+}
+
+/* CARD GRID */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
@@ -82,12 +104,6 @@ body {
   border-radius: 14px;
   padding: 10px;
   text-align: center;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.card-config:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 40px rgba(0,0,0,.6);
 }
 
 .card-config img {
@@ -101,6 +117,7 @@ body {
   font-size: 14px;
 }
 
+/* COUNTER */
 .counter {
   margin-top: 8px;
   display: flex;
@@ -120,11 +137,10 @@ body {
 
 .counter span {
   min-width: 18px;
-  text-align: center;
 }
 
-/* ===== FOOTER ===== */
-.setup-footer {
+/* FOOTER */
+.footer {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -137,7 +153,7 @@ body {
   font-size: 18px;
 }
 
-/* ===== BUTTON ===== */
+/* BUTTON */
 .btn {
   padding: 12px 28px;
   border-radius: 999px;
@@ -157,25 +173,17 @@ body {
   border: 1px solid #444;
 }
 
-/* ===== GAME ===== */
+/* GAME */
 .deck {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.deck img {
-  width: 80px;
-  border-radius: 8px;
-}
-
-/* FLIP CARD */
 .card-big {
   width: 150px;
   height: 230px;
   perspective: 1000px;
-  margin: auto;
 }
 
 .card-inner {
@@ -204,13 +212,13 @@ body {
   100% { transform: rotateY(180deg); }
 }
 
-/* ===== RESULT ===== */
-.history {
-  padding: 0;
+/* RESULT */
+#history {
   list-style: none;
+  padding: 0;
 }
 
-.history li {
+#history li {
   padding: 6px 0;
   color: var(--muted);
 }
