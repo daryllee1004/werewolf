@@ -36,6 +36,10 @@ h1, h2 {
   color: #fff;
   font-size: 16px;
   text-align: left;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .accordion-body {
@@ -46,6 +50,29 @@ h1, h2 {
 
 .accordion-body.open {
   max-height: 1000px;
+}
+
+/* ===== BADGE ===== */
+.badge {
+  min-width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.badge.highlight {
+  background: #a855f7;
+  color: #14001f;
+  box-shadow: 0 0 12px rgba(168,85,247,.7);
+}
+
+.badge.highlight.red {
+  background: #ef4444;
+  box-shadow: 0 0 12px rgba(239,68,68,.7);
 }
 
 /* ===== CARD GRID ===== */
@@ -62,8 +89,8 @@ h1, h2 {
 
 .card-config {
   background: rgba(0,0,0,0.4);
-  border-radius: 12px;
-  padding: 8px;
+  border-radius: 14px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -83,38 +110,65 @@ h1, h2 {
   margin: 6px 0;
 }
 
+/* ===== COUNTER (FIX MÉO) ===== */
 .counter {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
+  margin-top: 6px;
+}
+
+.counter span {
+  min-width: 20px;
+  font-weight: 700;
 }
 
 .counter button {
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: none;
-  background: #6d28d9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(145deg,#7c3aed,#4c1d95);
   color: #fff;
   font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,.5);
+}
+
+.counter button:active {
+  transform: scale(0.92);
+}
+
+/* ===== SUMMARY ===== */
+.summary {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 18px;
+}
+
+.highlight-total strong {
+  color: #f5d0fe;
+  font-size: 22px;
+  text-shadow: 0 0 10px rgba(217,70,239,.7);
 }
 
 /* ===== BUTTONS ===== */
 .primary-btn {
   display: block;
-  margin: 20px auto;
-  padding: 12px 24px;
+  margin: 22px auto;
+  padding: 12px 26px;
   background: linear-gradient(90deg,#7c3aed,#4c1d95);
   border: none;
   border-radius: 30px;
   color: #fff;
-  font-size: 16px;
-}
-
-.summary {
-  text-align: center;
-  margin-top: 12px;
   font-size: 16px;
 }
 
