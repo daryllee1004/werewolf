@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Werewolf Dark Card</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./style.css?v=1.0.3">
-
+  <meta charset="UTF-8">
+  <title>Werewolf Mini Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css?v=1.0.0">
 </head>
 <body>
 
-<header class="app-header">
-  <h1>🐺 Werewolf</h1>
-  <p>Dark Card Setup</p>
+<header class="header">
+  <h1>🐺 WEREWOLF</h1>
+  <p>Dark Card Mini Game</p>
 </header>
 
-<main class="app">
+<main class="container">
 
   <!-- SETUP -->
   <section id="setup" class="panel">
-    <div class="factions">
-      <div class="faction">
-        <h2>Phe Dân</h2>
-        <div id="group-dan" class="card-grid"></div>
+
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleGroup('dan')">
+          🧑‍🌾 Phe Dân
+        </button>
+        <div id="group-dan" class="accordion-body"></div>
       </div>
 
-      <div class="faction">
-        <h2>Phe Sói</h2>
-        <div id="group-soi" class="card-grid"></div>
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleGroup('soi')">
+          🐺 Phe Sói
+        </button>
+        <div id="group-soi" class="accordion-body"></div>
       </div>
 
-      <div class="faction">
-        <h2>Character</h2>
-        <div id="group-char" class="card-grid"></div>
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleGroup('char')">
+          🎭 Character
+        </button>
+        <div id="group-char" class="accordion-body"></div>
       </div>
+
     </div>
 
-    <div class="setup-footer">
+    <div class="footer">
       <div class="total">
         Tổng số lá: <span id="totalCards">0</span>
       </div>
       <button class="btn primary" onclick="startGame()">Bắt đầu game</button>
     </div>
+
   </section>
 
   <!-- GAME -->
@@ -52,12 +61,12 @@
   <!-- RESULT -->
   <section id="result" class="panel hidden">
     <h2>Lịch sử bốc bài</h2>
-    <ul id="history" class="history"></ul>
+    <ul id="history"></ul>
     <button class="btn ghost" onclick="resetGame()">Chơi lại</button>
   </section>
 
 </main>
 
-<script src="./script.js?v=1.0.3"></script>
+<script src="./script.js?v=1.0.0"></script>
 </body>
 </html>
