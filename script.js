@@ -28,14 +28,18 @@ let history = [];
 
 /* ===== ACCORDION ===== */
 function toggleGroup(group) {
-  const el = document.getElementById(`group-${group}`);
-  el.classList.toggle('open');
+  document.getElementById(`group-${group}`).classList.toggle('open');
 }
 
-/* ===== RENDER ===== */
+/* ===== RENDER SETUP (FIX SCROLL) ===== */
 function renderSetup() {
   ['dan','soi'].forEach(group => {
     const box = document.getElementById(`group-${group}`);
+    if (!box) return;
+
+    const oldGrid = box.querySelector('.card-grid');
+    const scrollTop = oldGrid ? oldGrid.scrollTop : 0;
+
     box.innerHTML = `<div class="card-grid"></div>`;
     const grid = box.querySelector('.card-grid');
 
@@ -52,10 +56,11 @@ function renderSetup() {
         </div>
       `);
     });
+
+    grid.scrollTop = scrollTop; // 🔥 FIX GIẬT
   });
 
-  document.getElementById('totalCards').innerText =
-    cards.reduce((s,c)=>s+c.count,0);
+  updateSummary();
 }
 
 function changeCount(id, delta) {
@@ -65,10 +70,20 @@ function changeCount(id, delta) {
   if (MULTI_CARDS.includes(id)) {
     c.count = Math.max(0, c.count + delta);
   } else {
-    if (delta > 0) c.count = 1;
-    else c.count = 0;
+    c.count = delta > 0 ? 1 : 0;
   }
   renderSetup();
+}
+
+/* ===== REALTIME SUMMARY ===== */
+function updateSummary() {
+  const total = cards.reduce((s,c)=>s+c.count,0);
+  const dan = cards.filter(c=>c.group==='dan').reduce((s,c)=>s+c.count,0);
+  const soi = cards.filter(c=>c.group==='soi').reduce((s,c)=>s+c.count,0);
+
+  document.getElementById('totalCards').innerText = total;
+  document.getElementById('count-dan').innerText = dan;
+  document.getElementById('count-soi').innerText = soi;
 }
 
 /* ===== GAME ===== */
@@ -77,15 +92,10 @@ function startGame() {
   history = [];
 
   cards.forEach(c => {
-    for (let i = 0; i < c.count; i++) {
-      deck.push({ ...c });
-    }
+    for (let i = 0; i < c.count; i++) deck.push({ ...c });
   });
 
-  if (!deck.length) {
-    alert('Bạn chưa chọn lá bài nào!');
-    return;
-  }
+  if (!deck.length) return alert('Bạn chưa chọn lá bài nào!');
 
   deck.sort(() => Math.random() - 0.5);
 
@@ -106,11 +116,8 @@ function drawCard() {
   const card = deck.splice(i,1)[0];
   history.push(card.name);
 
-  document.getElementById('deck').innerHTML = `
-    <div class="card-big">
-      <img src="${card.img}">
-    </div>
-  `;
+  document.getElementById('deck').innerHTML =
+    `<div class="card-big"><img src="${card.img}"></div>`;
 
   setTimeout(showBack, 3000);
 }
