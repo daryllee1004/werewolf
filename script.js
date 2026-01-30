@@ -1,25 +1,40 @@
 const BACK_IMG = './assets/back_card.webp';
 
 const cards = [
-  { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 },
+  { id:'guard', name:'Bảo vệ', group:'dan', img:'./assets/guard.webp', count:0 }, 
+  { id:'seer', name:'Tiết lộ', group:'dan', img:'./assets/revealer.webp', count:0 },
+  { id:'witch', name:'Phù thủy', group:'dan', img:'./assets/witch.webp', count:0 },
   { id:'seer', name:'Tiên tri', group:'dan', img:'./assets/seer.webp', count:0 },
+  
+  { id:'witch', name:'Tâm linh', group:'dan', img:'./assets/mentalist.webp', count:0 },
+  { id:'witch', name:'Cứng cỏi', group:'dan', img:'./assets/tough_guy.webp', count:0 },
+  { id:'witch', name:'Hoàng tử', group:'dan', img:'./assets/prince.webp', count:0 },
+  { id:'witch', name:'Tu sĩ', group:'dan', img:'./assets/priest.webp', count:0 },
+  
+  
+  { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 },
 
   { id:'werewolf', name:'Ma sói', group:'soi', img:'./assets/werewolf.webp', count:0 },
 
-  { id:'witch', name:'Phù thủy', group:'char', img:'./assets/witch.webp', count:0 }
 ];
 
-let gameDeck = [];
+let deck = [];
 let history = [];
 
-/* ===== SETUP ===== */
+/* ===== ACCORDION ===== */
+function toggleGroup(group) {
+  document.getElementById(`group-${group}`).classList.toggle('open');
+}
+
+/* ===== SETUP RENDER ===== */
 function renderSetup() {
   ['dan','soi','char'].forEach(g => {
     const box = document.getElementById(`group-${g}`);
-    box.innerHTML = '';
+    box.innerHTML = `<div class="card-grid"></div>`;
+    const grid = box.querySelector('.card-grid');
 
     cards.filter(c => c.group === g).forEach(c => {
-      box.innerHTML += `
+      grid.innerHTML += `
         <div class="card-config">
           <img src="${c.img}">
           <div class="name">${c.name}</div>
@@ -47,43 +62,43 @@ function updateTotal() {
     cards.reduce((s,c)=>s+c.count,0);
 }
 
-/* ===== START ===== */
+/* ===== GAME ===== */
 function startGame() {
-  gameDeck = [];
+  deck = [];
   history = [];
 
   cards.forEach(c => {
-    for (let i=0;i<c.count;i++) gameDeck.push({...c});
+    for (let i = 0; i < c.count; i++) {
+      deck.push({ ...c });
+    }
   });
 
-  if (!gameDeck.length) return;
+  if (!deck.length) {
+    alert('Chưa chọn lá bài nào!');
+    return;
+  }
 
-  gameDeck.sort(()=>Math.random()-0.5);
+  deck.sort(() => Math.random() - 0.5);
 
   document.getElementById('setup').classList.add('hidden');
   document.getElementById('game').classList.remove('hidden');
 
-  renderBackDeck();
+  showBack();
 }
 
-function renderBackDeck() {
-  const d = document.getElementById('deck');
-  d.innerHTML = '';
-  gameDeck.forEach(() => {
-    d.innerHTML += `<img src="${BACK_IMG}">`;
-  });
+function showBack() {
+  document.getElementById('deck').innerHTML =
+    `<img src="${BACK_IMG}" width="150">`;
 }
 
-/* ===== DRAW ===== */
 function drawCard() {
-  if (!gameDeck.length) return endGame();
+  if (!deck.length) return endGame();
 
-  const i = Math.floor(Math.random()*gameDeck.length);
-  const card = gameDeck.splice(i,1)[0];
+  const i = Math.floor(Math.random() * deck.length);
+  const card = deck.splice(i,1)[0];
   history.push(card.name);
 
-  const d = document.getElementById('deck');
-  d.innerHTML = `
+  document.getElementById('deck').innerHTML = `
     <div class="card-big">
       <div class="card-inner">
         <img class="card-face card-front" src="${card.img}">
@@ -92,17 +107,16 @@ function drawCard() {
     </div>
   `;
 
-  setTimeout(renderBackDeck, 3000);
+  setTimeout(showBack, 3000);
 }
 
-/* ===== END ===== */
 function endGame() {
   document.getElementById('game').classList.add('hidden');
   document.getElementById('result').classList.remove('hidden');
 
-  const h = document.getElementById('history');
-  h.innerHTML = '';
-  history.forEach((n,i)=>h.innerHTML+=`<li>${i+1}. ${n}</li>`);
+  const ul = document.getElementById('history');
+  ul.innerHTML = '';
+  history.forEach((n,i)=>ul.innerHTML+=`<li>${i+1}. ${n}</li>`);
 }
 
 function resetGame() {
