@@ -20,6 +20,7 @@ const cards = [
 
   { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 },
   { id:'werewolf', name:'Ma sói', group:'soi', img:'./assets/werewolf.webp', count:0 },
+  { id:'hunter', name:'Thợ săn', group:'char', img:'./assets/hunter.webp', count:0 },
 ];
 
 let deck = [];
