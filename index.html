@@ -12,12 +12,12 @@
 
   <h1>🐺 Werewolf Game Setup</h1>
 
-  <!-- ===== SETUP ===== -->
   <section id="setup">
 
     <div class="accordion">
       <button class="accordion-header" onclick="toggleGroup('dan')">
         🧑‍🌾 Phe Dân
+        <span class="badge" id="count-dan">0</span>
       </button>
       <div class="accordion-body" id="group-dan"></div>
     </div>
@@ -25,6 +25,7 @@
     <div class="accordion">
       <button class="accordion-header" onclick="toggleGroup('soi')">
         🐺 Phe Sói
+        <span class="badge" id="count-soi">0</span>
       </button>
       <div class="accordion-body" id="group-soi"></div>
     </div>
@@ -36,13 +37,11 @@
     <button class="primary-btn" onclick="startGame()">Bắt đầu game</button>
   </section>
 
-  <!-- ===== GAME ===== -->
   <section id="game" class="hidden">
     <div id="deck"></div>
     <button class="primary-btn" onclick="drawCard()">Chọn bài</button>
   </section>
 
-  <!-- ===== RESULT ===== -->
   <section id="result" class="hidden">
     <h2>Lịch sử rút bài</h2>
     <ul id="history"></ul>
@@ -51,6 +50,6 @@
 
 </div>
 
-<script src="./script.js?v=1.0.0"></script>
+<script src="./script.js?v=fix-scroll"></script>
 </body>
 </html>
