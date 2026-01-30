@@ -1,8 +1,8 @@
 const BACK_IMG = './assets/back_card.webp';
 
-/* ===== CARD DATA (ID DUY NHẤT) ===== */
+
 const cards = [
-  { id:'guard', name:'Bảo vệ', group:'dan', img:'./assets/guard.webp', count:0 },
+  { id:'guard', name:'Bảo vệ', group:'dan', img:'./assets/bodyguard.webp', count:0 },
   { id:'revealer', name:'Tiết lộ', group:'dan', img:'./assets/revealer.webp', count:0 },
   { id:'witch', name:'Phù thủy', group:'dan', img:'./assets/witch.webp', count:0 },
   { id:'seer', name:'Tiên tri', group:'dan', img:'./assets/seer.webp', count:0 },
