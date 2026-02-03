@@ -19,7 +19,18 @@ const cards = [
   { id:'twin', name:'Song sinh', group:'dan', img:'./assets/twins.webp', count:0 },
 
   { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 },
-  { id:'werewolf', name:'Ma sói', group:'soi', img:'./assets/werewolf.webp', count:0 },
+
+  
+  { id:'traitor', name:'Phản bội', group:'soi', img:'./assets/traitor.webp', count:0 },
+  { id:'alphawolf', name:'Sói nguyền', group:'soi', img:'./assets/alphawolf.webp', count:0 },
+  { id:'wolfman', name:'Sói người', group:'soi', img:'./assets/wolfman.webp', count:0 },
+  { id:'werewolf', name:'Sói', group:'soi', img:'./assets/werewolf.webp', count:0 },
+  { id:'wolfcub', name:'Sói con', group:'soi', img:'./assets/wolfcub.webp', count:0 },
+  { id:'sorceress', name:'Pháp sư sói', group:'soi', img:'./assets/sorceress.webp', count:0 },
+  { id:'motherdevil', name:'Mẹ quỷ', group:'soi', img:'./assets/mother-devil.webp', count:0 },
+
+
+  
   { id:'hunter', name:'Thợ săn', group:'char', img:'./assets/hunter.webp', count:0 },
 ];
 
