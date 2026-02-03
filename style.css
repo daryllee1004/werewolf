@@ -13,6 +13,7 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 16px;
+  overflow-x: hidden; /* 🔥 chặn cuộn ngang */
 }
 
 h1, h2 {
@@ -75,28 +76,39 @@ h1, h2 {
   box-shadow: 0 0 12px rgba(239,68,68,.7);
 }
 
-/* ===== CARD GRID ===== */
+/* ===== CARD GRID (FIX MÉO) ===== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 🔥 luôn 3 cột đều */
   gap: 12px;
   padding: 12px;
 
+  width: 100%;
+  max-width: 100%;
+
   max-height: 60vh;
   overflow-y: auto;
+  overflow-x: hidden; /* 🔥 không cuộn ngang */
   -webkit-overflow-scrolling: touch;
 }
 
+/* ===== CARD ITEM ===== */
 .card-config {
   background: rgba(0,0,0,0.4);
   border-radius: 14px;
   padding: 10px;
   text-align: center;
+
+  width: 100%;      /* 🔥 ép chiếm đủ ô */
+  min-width: 0;     /* 🔥 fix grid bị bóp */
 }
 
+/* 🔥 KHÓA TỈ LỆ ẢNH */
 .card-config img {
   width: 100%;
-  max-width: 150px;
+  aspect-ratio: 2 / 3; /* 🔥 tỉ lệ lá bài */
+  object-fit: cover;
+
   border-radius: 10px;
   box-shadow: 0 0 14px rgba(168,85,247,.4);
 }
@@ -110,7 +122,7 @@ h1, h2 {
   margin: 6px 0;
 }
 
-/* ===== COUNTER (FIX MÉO) ===== */
+/* ===== COUNTER ===== */
 .counter {
   display: flex;
   justify-content: center;
