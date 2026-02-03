@@ -79,7 +79,7 @@ h1, h2 {
 /* ===== CARD GRID (FIX MÉO) ===== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 🔥 luôn 3 cột đều */
+  grid-template-columns: repeat(4, 1fr); /* 🔥 luôn 3 cột đều */
   gap: 12px;
   padding: 12px;
 
