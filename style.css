@@ -79,7 +79,7 @@ h1, h2 {
 /* ===== CARD GRID (FIX MÉO) ===== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 🔥 luôn 3 cột đều */
+  grid-template-columns: repeat(3, 1fr); /* 🔥 luôn 3 cột đều */
   gap: 12px;
   padding: 12px;
 
@@ -121,6 +121,35 @@ h1, h2 {
   font-size: 13px;
   margin: 6px 0;
 }
+
+
+
+/* ===== SELECTED CARD VISUAL ===== */
+.card-config.selected {
+  border: 2px solid #a855f7;
+  box-shadow: 0 0 18px rgba(168,85,247,.45);
+}
+
+/* viền ảnh rõ hơn */
+.card-config.selected img {
+  outline: none;
+  box-shadow:
+    0 0 0 2px #a855f7,
+    0 0 18px rgba(168,85,247,.6);
+}
+
+/* nút + / − đổi màu khi card được chọn */
+.card-config.selected .counter button {
+  background: linear-gradient(145deg,#f472b6,#a855f7);
+  box-shadow: 0 0 10px rgba(217,70,239,.7);
+}
+
+/* số lượng nổi hơn */
+.card-config.selected .counter span {
+  color: #f5d0fe;
+  text-shadow: 0 0 6px rgba(217,70,239,.8);
+}
+
 
 /* ===== COUNTER ===== */
 .counter {
