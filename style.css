@@ -237,8 +237,12 @@ h1, h2 {
   }
 }
 /* ===== GAME FLIP CARD ===== */
+.remain{
+  font-size: 14px;
+  margin-bottom: 20px;
+}
 .card-flip {
-  width: 180px;            /* 🔥 kích thước hợp lý */
+  width: 250px;            /* 🔥 kích thước hợp lý */
   aspect-ratio: 2 / 3;
   margin: 0 auto;
   perspective: 1200px;
@@ -282,6 +286,6 @@ h1, h2 {
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
   .card-flip {
-    width: 140px;
+    width: 200px;
   }
 }
