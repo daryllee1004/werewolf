@@ -27,7 +27,7 @@ h1, h2 {
   margin-bottom: 12px;
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255,255,255,0.04);
+  /* background: rgba(255,255,255,0.04); */
 }
 
 .accordion-header {
