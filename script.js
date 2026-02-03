@@ -18,7 +18,7 @@ const cards = [
   { id:'twin', name:'Song sinh', group:'dan', img:'./assets/twins.webp', count:0 },
   { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 },
   { id:'diseased', name:'Con bệnh', group:'dan', img:'./assets/diseased.webp', count:0 },
-  { id:'pacific', name:'Yêu hòa bình', group:'dan', img:'./assets/pacific.webp', count:0 },
+  { id:'pacifist', name:'Yêu hòa bình', group:'dan', img:'./assets/pacifist.webp', count:0 },
   { id:'idiot', name:'Thằng ngốc', group:'dan', img:'./assets/idiot.webp', count:0 },
   { id:'martyr', name:'Thiếu nữ', group:'dan', img:'./assets/martyr.webp', count:0 },
   { id:'beholder', name:'Kẻ nắm giữ', group:'dan', img:'./assets/beholder.webp', count:0 },
