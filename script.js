@@ -15,10 +15,16 @@ const cards = [
   { id:'empathist', name:'Thấu cảm', group:'dan', img:'./assets/empathist.webp', count:0 },
   { id:'insomniac', name:'Mất ngủ', group:'dan', img:'./assets/insomniac.webp', count:0 },
   { id:'spellcaster', name:'Liễu', group:'dan', img:'./assets/spellcaster.webp', count:0 },
-  { id:'martyr', name:'Thiếu nữ', group:'dan', img:'./assets/martyr.webp', count:0 },
   { id:'twin', name:'Song sinh', group:'dan', img:'./assets/twins.webp', count:0 },
-
   { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 },
+  { id:'diseased', name:'Con bệnh', group:'dan', img:'./assets/diseased.webp', count:0 },
+  { id:'pacific', name:'Yêu hòa bình', group:'dan', img:'./assets/pacific.webp', count:0 },
+  { id:'idiot', name:'Thằng ngốc', group:'dan', img:'./assets/idiot.webp', count:0 },
+  { id:'martyr', name:'Thiếu nữ', group:'dan', img:'./assets/martyr.webp', count:0 },
+  { id:'beholder', name:'Kẻ nắm giữ', group:'dan', img:'./assets/beholder.webp', count:0 },
+  { id:'magician', name:'Pháp sư', group:'dan', img:'./assets/great-magician.webp', count:0 },
+  { id:'huntress', name:'Nữ thợ săn', group:'dan', img:'./assets/huntress.webp', count:0 },
+  
 
   
   { id:'traitor', name:'Phản bội', group:'soi', img:'./assets/traitor.webp', count:0 },
@@ -26,8 +32,11 @@ const cards = [
   { id:'wolfman', name:'Sói người', group:'soi', img:'./assets/wolfman.webp', count:0 },
   { id:'werewolf', name:'Sói', group:'soi', img:'./assets/werewolf.webp', count:0 },
   { id:'wolfcub', name:'Sói con', group:'soi', img:'./assets/wolfcub.webp', count:0 },
+  { id:'snowwolf', name:'Sói tuyết', group:'soi', img:'./assets/snowwolf.webp', count:0 },
   { id:'sorceress', name:'Pháp sư sói', group:'soi', img:'./assets/sorceress.webp', count:0 },
+  { id:'seedofevil', name:'Trứng quỷ', group:'soi', img:'./assets/seed-of-evil.webp', count:0 },
   { id:'motherdevil', name:'Mẹ quỷ', group:'soi', img:'./assets/mother-devil.webp', count:0 },
+  { id:'cloak', name:'Áo choàng', group:'soi', img:'./assets/cloak.webp', count:0 },
 
 
   
