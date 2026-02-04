@@ -7,6 +7,20 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<!-- PASSWORD POPUP -->
+<div id="passwordOverlay">
+  <div class="password-box">
+    <h2>🔒 Nhập mật khẩu</h2>
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Nhập mật khẩu..."
+      autocomplete="off"
+    />
+    <button onclick="checkPassword()">Xác nhận</button>
+    <p id="passwordError">Sai mật khẩu</p>
+  </div>
+</div>
 
 <div class="app">
 
