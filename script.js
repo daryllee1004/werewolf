@@ -15,15 +15,15 @@ const cards = [
   { id:'empathist', name:'Thấu cảm', group:'dan', img:'./assets/empathist.webp', count:0 },
   { id:'insomniac', name:'Mất ngủ', group:'dan', img:'./assets/insomniac.webp', count:0 },
   { id:'spellcaster', name:'Liễu', group:'dan', img:'./assets/spellcaster.webp', count:0 },
+  { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 }, 
   { id:'twin', name:'Song sinh', group:'dan', img:'./assets/twins.webp', count:0 },
-  { id:'villager', name:'Dân làng', group:'dan', img:'./assets/villager.webp', count:0 },
-  { id:'diseased', name:'Con bệnh', group:'dan', img:'./assets/diseased.webp', count:0 },
-  { id:'pacifist', name:'Yêu hòa bình', group:'dan', img:'./assets/pacifist.webp', count:0 },
-  { id:'idiot', name:'Thằng ngốc', group:'dan', img:'./assets/idiot.webp', count:0 },
+  { id:'diseased', name:'Con bệnh', group:'dan', img:'./assets/diseased.webp', count:0 }, 
   { id:'martyr', name:'Thiếu nữ', group:'dan', img:'./assets/martyr.webp', count:0 },
   { id:'beholder', name:'Kẻ nắm giữ', group:'dan', img:'./assets/beholder.webp', count:0 },
   { id:'magician', name:'Pháp sư', group:'dan', img:'./assets/great-magician.webp', count:0 },
   { id:'huntress', name:'Nữ thợ săn', group:'dan', img:'./assets/huntress.webp', count:0 },
+  { id:'pacifist', name:'Yêu hòa bình', group:'dan', img:'./assets/pacifist.webp', count:0 },
+  { id:'idiot', name:'Thằng ngốc', group:'dan', img:'./assets/idiot.webp', count:0 },
   
 
   
@@ -41,6 +41,16 @@ const cards = [
 
   
   { id:'hunter', name:'Thợ săn', group:'char', img:'./assets/hunter.webp', count:0 },
+  { id:'cultleader', name:'Trưởng giáo phái', group:'char', img:'./assets/cult-leader.webp', count:0 },
+  { id:'cupid', name:'Cupid', group:'char', img:'./assets/cupid.webp', count:0 },
+  { id:'cursed', name:'Kẻ bị nguyền', group:'char', img:'./assets/cursed.webp', count:0 },
+  { id:'doppelganger', name:'Nhân bản', group:'char', img:'./assets/doppelganger.webp', count:0 },
+  { id:'elder', name:'Già làng', group:'char', img:'./assets/elder.webp', count:0 },
+  { id:'moonmaiden', name:'Nguyệt nữ', group:'char', img:'./assets/moon-maiden.webp', count:0 },
+  { id:'pi', name:'Thám tử', group:'char', img:'./assets/pi.webp', count:0 },
+  { id:'swapper', name:'Hoán đổi', group:'char', img:'./assets/swapper.webp', count:0 },
+  { id:'thief', name:'Tên trộm', group:'char', img:'./assets/the-thief.webp', count:0 },
+  { id:'villagechief', name:'Trưởng làng', group:'char', img:'./assets/village-chief.webp', count:0 },
 ];
 
  
