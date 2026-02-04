@@ -206,3 +206,27 @@ function resetGame() {
 
 document.addEventListener('DOMContentLoaded', renderSetup);
 
+
+/* ===== PASSWORD PROTECTION ===== */
+const GAME_PASSWORD = 'bananhdung';
+
+function checkPassword() {
+  const input = document.getElementById('passwordInput');
+  const error = document.getElementById('passwordError');
+
+  if (input.value === GAME_PASSWORD) {
+    document.getElementById('passwordOverlay').style.display = 'none';
+  } else {
+    error.style.display = 'block';
+    input.value = '';
+    input.focus();
+  }
+}
+
+/* ENTER TO SUBMIT */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && document.getElementById('passwordOverlay')) {
+    checkPassword();
+  }
+});
+
