@@ -8,6 +8,7 @@ body {
   background: radial-gradient(circle at top, #1b0f2e, #05010a);
   /* background: red; */
   color: #eee;
+  height: 100vh;
 }
 
 .app {
