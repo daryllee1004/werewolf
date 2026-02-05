@@ -175,7 +175,12 @@ function drawCard() {
   const front = document.querySelector('.card-front');
   const remain = document.querySelector('.remain strong');
 
-  front.innerHTML = `<img src="${card.img}">`;
+  // front.innerHTML = `<img src="${card.img}">`;
+  front.innerHTML = `
+  <img src="${card.img}">
+  <span class="card-name">${card.name}</span>
+  `;
+
   remain.innerText = deck.length;
 
   requestAnimationFrame(()=>inner.classList.add('flip'));
