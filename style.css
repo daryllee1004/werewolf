@@ -346,6 +346,7 @@ h1, h2 {
 
 .password-box h2 {
   margin-bottom: 16px;
+  font-size: 18px;
 }
 
 .password-box input {
@@ -367,7 +368,7 @@ h1, h2 {
   border: none;
   color: #fff;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
 }
 
