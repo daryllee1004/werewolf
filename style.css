@@ -277,7 +277,7 @@ h1, h2 {
 }
 
 .card-back {
-  background: #000;
+  background: radial-gradient(circle at top, #2a144d, #12001f);
 }
 
 .card-front {
@@ -309,6 +309,9 @@ h1, h2 {
   box-shadow:
     0 0 18px rgba(168,85,247,0.6),
     0 8px 20px rgba(0,0,0,0.6);
+}
+.card-name{
+  font-size: 16px; 
 }
 
 
