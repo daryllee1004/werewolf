@@ -284,6 +284,34 @@ h1, h2 {
   transform: rotateY(180deg);
 }
 
+.card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px;
+  border-radius: 16px;
+
+  background: radial-gradient(circle at top, #2a144d, #12001f);
+
+  box-shadow:
+    0 0 20px rgba(168,85,247,0.45),
+    inset 0 0 14px rgba(255,255,255,0.08);
+
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.card-front img {
+  width: 160px;
+  border-radius: 12px;
+
+  box-shadow:
+    0 0 18px rgba(168,85,247,0.6),
+    0 8px 20px rgba(0,0,0,0.6);
+}
+
+
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
   .card-flip {
