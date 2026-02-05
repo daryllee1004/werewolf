@@ -331,7 +331,7 @@ h1, h2 {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
-  background: #5a0;
+  background: linear-gradient(145deg,#7c3aed,#4c1d95);
   border: none;
   color: #000;
   font-weight: bold;
