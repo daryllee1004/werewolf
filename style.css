@@ -277,7 +277,7 @@ h1, h2 {
 }
 
 .card-back {
-  background: radial-gradient(circle at top, #2a144d, #12001f);
+  background: #000;
 }
 
 .card-front {
